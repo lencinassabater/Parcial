@@ -128,7 +128,25 @@ const search_letters = () => {
 
 // TODO
 const search_words = () => {
+
+    let {text, view, search} = getIO();
+
+    let ordered_letters = 
+        char_array(text)
+        .map(el => el.toLowerCase())
+        .filter(el => el.includes(search.toLowerCase()))
+        .sort();
+
+    let result = `Hay ${ordered_letters.length} ocurrencias de la palabra '${search}'.\n\n`
+
+    result +=
+        repetitions(ordered_letters)      
+        .map(el => `${el.n} repeticiones de:  ${el.s}`)  
+        .join("\n");                    
+
+    view.innerHTML = result;
 };
+
 
 const search_sentences = () => {
   let {text, view, search} = getIO();
