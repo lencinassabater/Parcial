@@ -24,7 +24,11 @@ const char_array = (text) =>
     .filter((w) => (w!==""))         // remove empty string elem
 
 // TODO
-const word_array = (text) => []
+const word_array = (text) => 
+clean_string(text)
+    .replace(/[^a-zñáéíóú]+/igm, "")
+    .split("")                       
+    .filter((w) => (w!==""))
 
 const sentence_array = (text) =>
     clean_string(text)     
