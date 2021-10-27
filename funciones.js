@@ -78,6 +78,18 @@ const letter_index = () => {
 
 // TODO
 const word_index = () => {
+    let {text, view} = getIO();
+    let ordered_letters =
+    word_array(text)
+    .map(el => el.toLowerCase())
+    .sort();
+
+  let result =
+    repetitions(ordered_letters)
+    .map(el => `${el.s}: ${el.n}`)
+    .join("\n");
+
+  view.innerHTML = result;
 };
 
 const sentence_index = () => {
